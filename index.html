@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
         <title>New Age - Start Bootstrap Theme</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -17,6 +18,48 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input[type=reset] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=reset]:hover {
+  background-color: #45a049;
+}
+            
+</style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -272,6 +315,7 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
+<!--
                         <h2>Send e-mail to writetosushmithabhat@gmail.com:</h2>
 
 <form action="mailto:writetosushmithabhat@gmail.com" method="post" enctype="text/plain">
@@ -284,6 +328,68 @@ Comment:<br>
 <input type="submit" value="Send">
 <input type="reset" value="Reset">
 </form>
+-->
+   
+ <script>
+        window.addEventListener("load", function() {
+  document.getElementById("mailtolink").addEventListener("click", function(e) {
+    e.preventDefault() // remove after testing
+    let url = new URL(this.href);
+    const name = document.querySelector("[name=yourName]").value.trim();
+    const email = document.querySelector("[name=yourEmail]").value.trim();
+    const message = document.querySelector("[name=yourMessage]").value.trim();
+    url.searchParams.set("from", email);
+    url.searchParams.set("subject", "Message from " + (document.title || location.hostname))
+    url.searchParams.set("body", name + " said " + message)
+    this.href=url;
+    console.log(url)
+      console.log("Hello")
+  })
+});
+    </script>
+                        
+                        
+                       
+<h3>Send e-mail to writetosushmithabhat@gmail.com:</h3>
+
+<div class="container">
+  <form action="mailto:writetosushmithabhat@gmail.com" method="post" enctype="text/plain" id="myform" target="_blank">
+<!--
+    <label for="fname">Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="email">E-mail</label>
+    <input type="text" id="email" name="mail" placeholder="Your e-mail..">
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+-->
+      <label>Name:</label>
+    <input type="text" name="yourName"><br>
+    <label>Email:</label>
+    <input type="email" name="yourEmail"><br>
+    <label>Message:</label><br>
+    <textarea rows="10" cols="30" name="yourMessage"></textarea><br>
+<a target="_blank" class="button"  href="mailto:writetosushmithabhat@gmail.com" id="mailtolink">
+    <input type="reset" value="Reset"><span>Submit</span></a>
+  </form>
+</div>
+    
+<!--
+                        <div class="form">
+  <form>
+    <label>Name:</label>
+    <input type="text" name="yourName"><br>
+    <label>Email:</label>
+    <input type="email" name="yourEmail"><br>
+    <label>Message:</label><br>
+    <textarea rows="10" cols="30" name="yourMessage"></textarea><br>
+    <a target="_blank" class="button"  href="mailto:...@gmail.com" id="mailtolink"><span>Submit</span></a>
+  </form>
+</div>
+-->
                     </div>
                 </div>
             </div>
